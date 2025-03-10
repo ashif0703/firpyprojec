@@ -3,7 +3,7 @@ name: Python Deployment
 on:
   push:
     branches:
-      - main  # Runs the workflow when you push to 'main'
+      - master  # Runs the workflow when you push to 'master'
 
 jobs:
   deploy:
