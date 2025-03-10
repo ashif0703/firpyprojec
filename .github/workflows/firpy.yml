@@ -31,9 +31,9 @@ jobs:
 
       - name: Deploy to Server (Example)
         env:
-          SERVER_IP: ${{ secrets.13.201.100.156 }}
-          SSH_PRIVATE_KEY: ${{ secrets.pypemkey }}
+          SERVER_IP: ${{ SECRET_IP }}
+          SSH_PRIVATE_KEY: ${{ SECRET_PEM_KEY }}
         run: |
-          echo "$SSH_PRIVATE_KEY" > pypemkey.pem
-          chmod 600 pypemkey.pem
-          ssh -i pypemkey.pem ubuntu@13.201.100.156 "cd /your-app && git pull origin main && systemctl restart your-app"
+          echo "$SSH_PRIVATE_KEY" > SECRET_PEM_KEY
+          chmod 600 SECRET_PEM_KEY
+          ssh -i SECRET_PEM_KEY ubuntu@SECRET_IP "cd /your-app && git pull origin main && systemctl restart your-app"
